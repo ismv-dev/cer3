@@ -16,8 +16,7 @@ except requests.exceptions.RequestException as e:
 
 
 def home(request):
-    '''
-    l1 = [(1, 'Aire Libre', 'Actividades que se realizan al exterior, como yoga, caminatas o deporte.'),
+    '''l1 = [(1, 'Aire Libre', 'Actividades que se realizan al exterior, como yoga, caminatas o deporte.'),
 (2, 'Arte', 'Talleres de pintura, dibujo, manualidades, escultura, mosaico, etc.'),
 (3, 'Música', 'Talleres de guitarra, canto, instrumentos, folclore o ensamble.'),
 (4, 'Salud', 'Actividades relacionadas con bienestar físico o mental: meditación, autocuidado, etc.'),
@@ -37,28 +36,7 @@ def home(request):
     (7, 'Sede Junta Vecinal N°12', 'Calle La Esperanza 876, Sector Sur'),
     (8, 'Parque Comunal', 'Camino Verde km 2, Acceso Norte'),
     (9, 'Salón Multiuso Municipal', 'Edificio Consistorial, 2° piso'),
-    (10, 'Escuela Básica Villa Verde', 'Calle Educación 234, Sector Escolar')]
-    l1 = [(1, 'Aire Libre'),
-(2, 'Arte'),
-(3, 'Música'),
-(4, 'Salud'),
-(5, 'Tecnología'),
-(6, 'Oficios'),
-(7, 'Educación'),
-(8, 'Medioambiente'),
-(9, 'Comunidad y Liderazgo'),
-(10, 'Recreación')]
-
-    l2 = [(1, 'Jardín Botánico'),
-    (2, 'Playa El Encanto'),
-    (3, 'Biblioteca Municipal'),
-    (4, 'Centro Cultural Villa Verde'),
-    (5, 'Gimnasio Municipal'),
-    (6, 'Sede Junta Vecinal N°5'),
-    (7, 'Sede Junta Vecinal N°12'),
-    (8, 'Parque Comunal'),
-    (9, 'Salón Multiuso Municipal'),
-    (10, 'Escuela Básica Villa Verde')]
+    (10, 'Escuela Básica Villa Verde', 'Calle Educación 234, Sector Escolar')]'''
     for a in l1:
         categoria = Categoria()
         categoria.nombre = a[1]
@@ -66,7 +44,7 @@ def home(request):
     for a in l2:
         lugar = Lugar()
         lugar.nombre = a[1]
-        lugar.save()'''
+        lugar.save()
     talleres = list(Taller.objects.filter(fecha__month=date.today().month, estado='aceptado'))
     data = {
         'talleres': talleres,
