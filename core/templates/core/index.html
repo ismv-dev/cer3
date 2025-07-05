@@ -9,8 +9,9 @@
         <hr>
     
         {% for taller in talleres %}
-        <h5>{{ taller.titulo }}</h5>
-        <p>Fecha: {{ taller.fecha }}</p>
+        <h5>{{ taller.titulo|title }}</h5>
+        <br>
+        <p>Fecha: {{ taller.fecha|date:"d/m/Y" }}</p>
         <p>Duración: {{ taller.duracion_horas }} horas</p>
         <p>Profesor: {{ taller.profesor }}</p>
         <p>Lugar: {{ taller.lugar }}</p>

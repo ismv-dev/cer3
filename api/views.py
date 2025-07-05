@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import viewsets
 from core.models import Taller
 from .serializers import TallerReadSerializer, TallerWriteSerializer

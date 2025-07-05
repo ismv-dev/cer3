@@ -36,7 +36,7 @@ def home(request):
         lugar = Lugar()
         lugar.nombre = a[1]
         lugar.save()'''
-    talleres = list(Taller.objects.filter(fecha__month=date.today().month, estado='aceptado'))
+    talleres = list(Taller.objects.filter(estado='aceptado'))
     data = {
         'talleres': talleres,
     }
