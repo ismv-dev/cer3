@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+<h1 class="d-flex justify-content-center mt-4" style="font-size: max(min(7vw, 500%), 4vw)">Municipalidad de Villa Verde</h1>
+
+<section class="d-flex justify-content-center">
+    <div>
+        <h1>Talleres Comunitarios Disponibles</h1>
+        <hr>
+    
+        {% for taller in talleres %}
+        <h5>{{ taller.titulo }}</h5>
+        <p>Fecha: {{ taller.fecha }}</p>
+        <p>Duración: {{ taller.duracion_horas }} horas</p>
+        <p>Profesor: {{ taller.profesor }}</p>
+        <p>Lugar: {{ taller.lugar }}</p>
+        <p>Categoria: {{ taller.categoria }}</p>
+        <hr>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

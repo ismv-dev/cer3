@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+<section class="col-6 col-sm-5 col-md-4 col-lg-3 col-xl-2 mb-4 mt-5 text-white" style="margin: auto;">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="email">Correo</label>
+            <input class="form-control" type="email" name="email" id="email">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="password">Contraseña</label>
+            <div class="input-group">
+                <input class="form-control" type="password" name="password" id="password">
+                <button class="btn btn-outline-warning btn-light" type="button" id="togglePassword">
+                    <i class="bi bi-eye-slash" id="togglePasswordIcon"></i>
+                </button>
+            </div>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <button class="btn" type="submit" style="background-color: rgb(204, 112, 0); color:white; border-radius: 2vh;">Ingresar</button>
+        </div>
+    </form>
+    <br>
+    <div class="d-flex justify-content-center col-12">
+    <a href="{% url 'registro' %}" style="text-decoration: none; background-color: blue; color:white; border-radius: 2vh; padding: 1vh;">Crear una cuenta</a>
+    </div>
+</section>
+
+{% endblock %}
