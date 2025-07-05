@@ -5,15 +5,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Categoria, Lugar, Taller
 from datetime import date
 from django.contrib import messages
-import requests
-try:
-    response=requests.get('https://api.boostr.cl/holidays.json')
-    response.raise_for_status()
-    feriados = response.json()['data']
-except requests.exceptions.RequestException as e:
-        datos = {'error': str(e)}
-
-
 
 def home(request):
     '''l1 = [(1, 'Aire Libre', 'Actividades que se realizan al exterior, como yoga, caminatas o deporte.'),
@@ -36,7 +27,7 @@ def home(request):
     (7, 'Sede Junta Vecinal N°12', 'Calle La Esperanza 876, Sector Sur'),
     (8, 'Parque Comunal', 'Camino Verde km 2, Acceso Norte'),
     (9, 'Salón Multiuso Municipal', 'Edificio Consistorial, 2° piso'),
-    (10, 'Escuela Básica Villa Verde', 'Calle Educación 234, Sector Escolar')]'''
+    (10, 'Escuela Básica Villa Verde', 'Calle Educación 234, Sector Escolar')]
     for a in l1:
         categoria = Categoria()
         categoria.nombre = a[1]
@@ -44,7 +35,7 @@ def home(request):
     for a in l2:
         lugar = Lugar()
         lugar.nombre = a[1]
-        lugar.save()
+        lugar.save()'''
     talleres = list(Taller.objects.filter(fecha__month=date.today().month, estado='aceptado'))
     data = {
         'talleres': talleres,
@@ -53,18 +44,25 @@ def home(request):
 
 def registro(request):
     if request.POST:
-        if request.POST['email']=='' or request.POST['nombre']=='' or request.POST['password']=='':
+        email = request.POST['email']
+        nombre = request.POST['nombre']
+        apellido=request.POST['apellido']
+        password = request.POST['password']
+        cpassword = request.POST['confirmPassword']
+        if email=='' or nombre=='' or password=='':
             messages.error(request, 'Ningún campo obligatorio puede estar vacío')
-        elif User.objects.filter(email=request.POST['email']).exists():
+        elif User.objects.filter(email=email).exists():
             messages.error(request, 'Correo ya registrado')
-        elif request.POST['password']==request.POST['confirmPassword']:
-            user = User.objects.create_user(username=request.POST['email'], first_name=request.POST['nombre'], last_name=request.POST['apellido'], email=request.POST['email'], password=request.POST['password'])
+        elif password==cpassword:
+            user = User.objects.create_user(username=email, first_name=nombre, last_name=apellido, email=email, password=password)
             login(request, user)
             messages.success(request, 'Cuenta creada correctamente')
             return redirect('home')
         else:
             messages.error(request, 'Las contraseñas no coinciden')
-    return render(request, 'core/registro.html')
+        return render(request, 'core/registro.html', {'nombre':nombre,'apellido': apellido,'email':email})
+    else:
+        return render(request, 'core/registro.html')
 
 def ingresar(request):
     if request.POST:
