@@ -7,7 +7,7 @@
 <section>
     <form method="get">
     <select class="form-control" name="categoria" onchange="this.form.submit()">
-        <option value="">Seleccionar categoria (todas)</option>
+        <option value="">Todas las categorias</option>
         {% for c in categorias %}
             <option value="{{ c.id }}" {% if c.id|stringformat:'s' == request.GET.categoria %}selected{% endif %}>
                 {{ c.nombre }}
