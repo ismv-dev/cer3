@@ -36,8 +36,14 @@ def home(request):
         lugar = Lugar()
         lugar.nombre = a[1]
         lugar.save()'''
-    talleres = list(Taller.objects.filter(estado='aceptado'))
+    
+    categorias = Categoria.objects.all()
+    talleres = Taller.objects.filter(estado='aceptado')
+    categoria = request.GET.get('categoria')
+    if categoria:
+        talleres = talleres.filter(categoria=categoria)
     data = {
+        'categorias': categorias,
         'talleres': talleres,
     }
     return render(request, 'core/index.html', data)

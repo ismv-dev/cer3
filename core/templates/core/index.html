@@ -2,13 +2,21 @@
 {% load static %}
 {% block contenido %}
 <h1 class="d-flex justify-content-center mt-4" style="font-size: max(min(7vw, 500%), 4vw)">Municipalidad de Villa Verde</h1>
-
+<h1 class="d-flex justify-content-center">Talleres Comunitarios Disponibles</h1>
 <section class="d-flex justify-content-center">
-    <div>
-        <h1>Talleres Comunitarios Disponibles</h1>
-        <hr>
-    
-        {% for taller in talleres %}
+<section>
+    <form method="get">
+    <select class="form-control" name="categoria" onchange="this.form.submit()">
+        <option value="">Seleccionar categoria (todas)</option>
+        {% for c in categorias %}
+            <option value="{{ c.id }}" {% if c.id|stringformat:'s' == request.GET.categoria %}selected{% endif %}>
+                {{ c.nombre }}
+            </option>
+        {% endfor %}
+    </select>
+    </form>
+    <hr>
+    {% for taller in talleres %}
         <h5>{{ taller.titulo|title }}</h5>
         <br>
         <p>Fecha: {{ taller.fecha|date:"d/m/Y" }}</p>
@@ -17,7 +25,7 @@
         <p>Lugar: {{ taller.lugar }}</p>
         <p>Categoria: {{ taller.categoria }}</p>
         <hr>
-        {% endfor %}
-    </div>
+    {% endfor %}
+    </section>
 </section>
 {% endblock %}

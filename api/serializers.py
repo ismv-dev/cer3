@@ -46,8 +46,8 @@ class TallerWriteSerializer(serializers.ModelSerializer):
                 if fecha.strftime("%Y-%m-%d") in irrenunciables:
                     data['estado'] = 'rechazado'
                     data['observacion'] = 'No se programan talleres en feriados irrenunciables'
-                elif fecha.strftime("%Y-%m-%d") in renunciables:
-                    data['categoria'] = Categoria.objects.get(nombre='Aire Libre')
+                elif fecha.strftime("%Y-%m-%d") in renunciables and data['categoria']!='Aire Libre':
+                    data['estado'] = 'rechazado'
         except Exception:
             pass
         return data
