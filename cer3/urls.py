@@ -22,7 +22,6 @@ urlpatterns = [
     path('admin', admin.site.urls),
     path("", views.home, name='home'),
     path("ingresar", views.ingresar, name='ingresar'),
-    path("registro", views.registro, name='registro'),
     path("logout", views.logout, name='logout'),
     path('api',include('api.urls')),
 ]

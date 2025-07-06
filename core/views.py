@@ -48,31 +48,9 @@ def home(request):
     }
     return render(request, 'core/index.html', data)
 
-def registro(request):
-    if request.POST:
-        email = request.POST['email']
-        nombre = request.POST['nombre']
-        apellido=request.POST['apellido']
-        password = request.POST['password']
-        cpassword = request.POST['confirmPassword']
-        if email=='' or nombre=='' or password=='':
-            messages.error(request, 'Ningún campo obligatorio puede estar vacío')
-        elif User.objects.filter(email=email).exists():
-            messages.error(request, 'Correo ya registrado')
-        elif password==cpassword:
-            user = User.objects.create_user(username=email, first_name=nombre, last_name=apellido, email=email, password=password)
-            login(request, user)
-            messages.success(request, 'Cuenta creada correctamente')
-            return redirect('home')
-        else:
-            messages.error(request, 'Las contraseñas no coinciden')
-        return render(request, 'core/registro.html', {'nombre':nombre,'apellido': apellido,'email':email})
-    else:
-        return render(request, 'core/registro.html')
-
 def ingresar(request):
     if request.POST:
-        usuario = authenticate(username=request.POST['email'], password=request.POST['password'])
+        usuario = authenticate(username=request.POST['username'], password=request.POST['password'])
         if usuario is not None:
             login(request, usuario)
             return redirect('home')

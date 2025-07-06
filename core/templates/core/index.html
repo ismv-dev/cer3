@@ -20,7 +20,7 @@
         <h5>{{ taller.titulo|title }}</h5>
         <br>
         <p>Fecha: {{ taller.fecha|date:"d/m/Y" }}</p>
-        <p>Duración: {{ taller.duracion_horas }} horas</p>
+        <p>Duración: {{ taller.duracion_horas|floatformat:"0" }} horas</p>
         <p>Profesor: {{ taller.profesor }}</p>
         <p>Lugar: {{ taller.lugar }}</p>
         <p>Categoria: {{ taller.categoria }}</p>
