@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout as lgout
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
 from .models import Categoria, Lugar, Taller
 from datetime import date
 from django.contrib import messages
