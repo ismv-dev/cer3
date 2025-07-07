@@ -38,7 +38,7 @@ def home(request):
         lugar.save()'''
     
     categorias = Categoria.objects.all()
-    talleres = Taller.objects.filter(estado='aceptado')
+    talleres = Taller.objects.filter(estado='aceptado', fecha__gt=date.today())
     categoria = request.GET.get('categoria')
     if categoria:
         talleres = talleres.filter(categoria=categoria)
