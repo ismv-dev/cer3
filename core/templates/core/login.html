@@ -19,14 +19,15 @@
             <label for="{{ form.password.id_for_label }}">Contraseña</label><br>
             <div class="input-group">
             {{ form.password }}
+            <button class="btn btn-outline-success btn-light" type="button" id="togglePassword">
+                <i class="bi bi-eye-slash" id="togglePasswordIcon"></i>
+            </button>
             {% if form.password.errors %}
                 <div style="color:red">
                     {{ form.password.errors }}
                 </div>
             {% endif %}
-            <button class="btn btn-outline-success btn-light" type="button" id="togglePassword">
-                <i class="bi bi-eye-slash" id="togglePasswordIcon"></i>
-            </button>
+            
             </div>
         </div>
         <br>
@@ -41,9 +42,9 @@
     <div>
     <h1>Cuentas de prueba:</h1>
     <p>usuario - contraseña</p>
-    <p>JJVV - 1234</p>
-    <p>funcionario - 1234</p>
-    <p>admin - admin</p>
+    <p>JJVV - 8aD'Z\6eU5\Z</p>
+    <p>funcionario - 8aD'Z\6eU5\Z</p>
+    <p>admin - 8aD'Z\6eU5\Z</p>
     </div>
 </div>
 {% endblock %}
