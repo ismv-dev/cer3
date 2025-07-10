@@ -3,8 +3,7 @@
 {% block contenido %}
 <h1 class="d-flex justify-content-center mt-4" style="font-size: max(min(7vw, 500%), 4vw)">Municipalidad de Villa Verde</h1>
 <h1 class="d-flex justify-content-center">Talleres Comunitarios Disponibles</h1>
-<section class="d-flex justify-content-center">
-<section>
+<section class="d-flex m-auto" style="width:fit-content;">
     <form method="get">
     <select class="form-control" name="categoria" onchange="this.form.submit()">
         <option value="">Todas las categorias</option>
@@ -15,8 +14,11 @@
         {% endfor %}
     </select>
     </form>
+</section>
+<section class="d-flex gap-4 justify-content-center" style="margin-top: 5vh;">
     <hr>
     {% for taller in talleres %}
+    <div class="taller">
         <h5>{{ taller.titulo|title }}</h5>
         <br>
         <p>Fecha: {{ taller.fecha|date:"d/m/Y" }}</p>
@@ -24,8 +26,7 @@
         <p>Profesor: {{ taller.profesor }}</p>
         <p>Lugar: {{ taller.lugar }}</p>
         <p>Categoria: {{ taller.categoria }}</p>
-        <hr>
+    </div>
     {% endfor %}
-    </section>
 </section>
 {% endblock %}

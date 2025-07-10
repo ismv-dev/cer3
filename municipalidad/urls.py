@@ -20,8 +20,9 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.home, name='home'),
-    path("ingresar", views.ingresar, name='ingresar'),
-    path("logout", views.logout, name='logout'),
+    path("", views.home_view, name='home'),
+    path("newTaller", views.newTaller_view, name='newTaller'),
     path('api',include('api.urls')),
+    path("login", views.login_view, name='login'),
+    path("logout", views.logout_view, name='logout'),
 ]

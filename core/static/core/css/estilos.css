@@ -1,1 +1,60 @@
+.navbar {
+    background-color: rgb(0, 160, 8);
+    border-radius: 0 0 0 4vw;
+}
 
+.logout {
+    background-color: rgb(184, 0, 0);
+    border-radius: 4vh;
+    max-width: 155px;
+    transition: all 200ms;
+}
+
+.logout:hover {
+    background-color: rgb(154, 0, 0);
+}
+
+.ingresar {
+    background-color: rgb(0, 136, 255);
+    border-radius: 20px;
+    right:1vh;
+    position:absolute;
+}
+
+.ingresar:hover {
+    background-color: rgb(0, 117, 220);
+}
+
+.navbar-brand{
+    transition: all 200ms;
+    padding:8px;
+}
+
+.navbar-brand:hover {
+    background-color: rgb(0, 122, 6);
+    border-radius: 4vh;
+}
+
+.sesion {
+    border-radius: 4vh;
+    display: flex;
+    position: absolute;
+    right:1vw;
+}
+
+.login {
+    background-color: rgb(0, 133, 7);
+    color:white;
+    border-radius: 2vh;
+}
+.login:hover {
+    background-color: rgb(0, 123, 6);
+    color:white;
+    border-radius: 2vh;
+}
+
+.taller {
+    background-color: rgb(0, 160, 8);
+    padding: 2vh;
+    border-radius: 2vh;
+}

@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+{% block contenido %}
+<section class="col-6 col-sm-5 col-md-4 col-lg-3 col-xl-2 mb-4 mt-5" style="margin: auto;">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Usuario</label><br>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div style="color:red">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}">Contraseña</label><br>
+            <div class="input-group">
+            {{ form.password }}
+            {% if form.password.errors %}
+                <div style="color:red">
+                    {{ form.password.errors }}
+                </div>
+            {% endif %}
+            <button class="btn btn-outline-success btn-light" type="button" id="togglePassword">
+                <i class="bi bi-eye-slash" id="togglePasswordIcon"></i>
+            </button>
+            </div>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <button class="login btn" type="submit">Ingresar</button>
+        </div>
+        
+    </form>
+    
+</section>
+<div class="d-flex justify-content-center">
+    <div>
+    <h1>Cuentas de prueba:</h1>
+    <p>usuario - contraseña</p>
+    <p>JJVV - 1234</p>
+    <p>funcionario - 1234</p>
+    <p>admin - admin</p>
+    </div>
+</div>
+{% endblock %}
