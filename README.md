@@ -251,15 +251,15 @@ coverage report
 
 ### Checklist de Producción
 
-- [ ] DEBUG=False
-- [ ] SECRET_KEY configurado
-- [ ] ALLOWED_HOSTS configurado
-- [ ] HTTPS habilitado
-- [ ] Base de datos configurada
-- [ ] Archivos estáticos recolectados
-- [ ] Logs configurados
-- [ ] Backups configurados
-- [ ] Monitoreo configurado
+- DEBUG=False
+- SECRET_KEY configurado
+- ALLOWED_HOSTS configurado
+- HTTPS habilitado
+- Base de datos configurada
+- Archivos estáticos recolectados
+- Logs configurados
+- Backups configurados
+- Monitoreo configurado
 
 ### Servicios Recomendados
 
