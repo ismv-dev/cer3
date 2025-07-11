@@ -15,3 +15,5 @@ INFO 2025-07-11 17:47:31,300 autoreload 25968 30124 Watching for file changes wi
 WARNING 2025-07-11 17:47:33,019 log 25968 29376 Not Found: /favicon.ico
 INFO 2025-07-11 17:51:01,015 autoreload 30188 11960 Watching for file changes with StatReloader
 INFO 2025-07-11 17:52:44,485 autoreload 31896 27276 Watching for file changes with StatReloader
+WARNING 2025-07-11 17:52:50,251 log 31896 28776 Not Found: /favicon.ico
+WARNING 2025-07-11 17:53:28,321 log 31896 25076 Not Found: /favicon.ico
